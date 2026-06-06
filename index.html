@@ -1,0 +1,3431 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  初星群 Starry Dawn Circle — 對外招生 Landing Page       ║
+  ║  ✅ 唯一需要做的事：把所有「https://line.me/ti/g2/PwykU3Dg-k8k6Lnwj-swf5nsSwm4to0a6HFQLg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default」替換成你的連結   ║
+  ║     例如：https://line.me/R/ti/g/xxxxxxx                ║
+  ╚══════════════════════════════════════════════════════════╝
+-->
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>初星群 Starry Dawn Circle｜陪伴你實現理想生活的練習村</title>
+  <meta name="description" content="初星群是陪伴你實現理想生活的練習村。覺察 × 共學 × 共創，不說教、不比較，找到你自己的節奏。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #f7f4ee;
+      --bg2:        rgba(240,236,227,0.82);
+      --bg3:        #e8e3d8;
+      --card:       rgba(250,248,243,0.88);
+      --card-hover: #f5f1e8;
+      --border:     rgba(160,130,80,0.18);
+      --border-mid: rgba(160,130,80,0.3);
+      --gold:       #9a7a3a;
+      --gold-deep:  #7a5e25;
+      --gold-light: #c4a05a;
+      --gold-dim:   rgba(154,122,58,0.12);
+      --text:       #2e2a24;
+      --text-mid:   #5a5248;
+      --text-muted: #8a8078;
+      --text-dim:   #b0a898;
+      --radius:     14px;
+      --radius-sm:  9px;
+      --shadow-sm:  0 2px 16px rgba(120,100,60,0.08);
+      --shadow:     0 6px 32px rgba(120,100,60,0.12);
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      background: var(--bg);
+      background-image: url('images/image_1.png');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 300;
+      line-height: 1.9;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* ── Canvas Stars ── */
+    #stars-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 1;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section { position: relative; z-index: 1; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(
+        135deg,
+        rgba(185,148,95,0.82) 0%,
+        rgba(200,162,108,0.80) 40%,
+        rgba(190,152,98,0.82) 100%
+      );
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,200,155,0.18);
+      box-shadow: 0 2px 20px rgba(80,45,10,0.12); var(--border);
+    }
+
+    nav::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        92deg,
+        transparent 0px,
+        rgba(255,235,190,0.03) 1px,
+        transparent 2px,
+        transparent 6px,
+        rgba(80,40,10,0.04) 7px,
+        transparent 8px,
+        transparent 18px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav > * { position: relative; z-index: 1; }
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f5ede0;
+      letter-spacing: 1.2em;
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #ffffff;
+      text-decoration: none;
+      border: 1px solid rgba(200,160,80,0.4);
+      padding: 8px 20px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      letter-spacing: 0.08em;
+    }
+    .nav-cta:hover {
+      background: rgba(200,160,80,0.2);
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      padding: 120px 28px 80px;
+      position: relative;
+      background: transparent;
+    }
+    
+    /* 微小粒子飄浮效果 - 第一組 */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,235,180,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(240,210,150,0.35) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,240,190,0.3) 1px, transparent 1px),
+        radial-gradient(circle, rgba(230,190,130,0.35) 2px, transparent 2px),
+        radial-gradient(circle, rgba(250,225,160,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(240,200,140,0.3) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,230,175,0.38) 1px, transparent 1px),
+        radial-gradient(circle, rgba(245,220,165,0.35) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(235,200,145,0.32) 1px, transparent 1px),
+        radial-gradient(circle, rgba(250,235,185,0.37) 2px, transparent 2px),
+        radial-gradient(circle, rgba(240,215,155,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,225,170,0.33) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(248,228,178,0.36) 1px, transparent 1px),
+        radial-gradient(circle, rgba(238,208,148,0.34) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(252,232,182,0.39) 1px, transparent 1px),
+        radial-gradient(circle, rgba(242,218,158,0.31) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255,238,188,0.37) 1px, transparent 1px);
+      background-size: 
+        120px 120px,
+        150px 140px,
+        130px 145px,
+        110px 130px,
+        145px 135px,
+        125px 120px,
+        135px 145px,
+        115px 135px,
+        140px 125px,
+        125px 140px,
+        130px 125px,
+        145px 135px,
+        135px 128px,
+        122px 142px,
+        128px 132px,
+        142px 122px,
+        132px 138px;
+      background-position:
+        5% 8%,
+        35% 15%,
+        65% 22%,
+        15% 38%,
+        48% 45%,
+        22% 28%,
+        58% 12%,
+        12% 52%,
+        72% 58%,
+        30% 68%,
+        42% 32%,
+        18% 62%,
+        62% 48%,
+        28% 18%,
+        52% 25%,
+        25% 55%,
+        68% 72%;
+      animation: particleFloat1 40s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 1;
+    }
+    
+    /* 微小粒子飄浮效果 - 第二組 */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,230,170,0.35) 1px, transparent 1px),
+        radial-gradient(circle, rgba(245,215,155,0.3) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(235,205,145,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(250,235,180,0.3) 2px, transparent 2px),
+        radial-gradient(circle, rgba(240,210,150,0.35) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,240,195,0.33) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(230,195,135,0.38) 1px, transparent 1px),
+        radial-gradient(circle, rgba(245,225,170,0.32) 2px, transparent 2px),
+        radial-gradient(circle, rgba(250,220,160,0.36) 1px, transparent 1px),
+        radial-gradient(circle, rgba(240,205,145,0.34) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(248,228,175,0.37) 1px, transparent 1px),
+        radial-gradient(circle, rgba(238,213,153,0.35) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(252,235,185,0.38) 1px, transparent 1px),
+        radial-gradient(circle, rgba(243,218,165,0.33) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255,232,178,0.36) 1px, transparent 1px);
+      background-size: 
+        138px 135px,
+        118px 125px,
+        135px 145px,
+        125px 132px,
+        142px 140px,
+        128px 138px,
+        140px 128px,
+        120px 133px,
+        133px 142px,
+        138px 122px,
+        126px 140px,
+        142px 130px,
+        122px 135px,
+        135px 126px,
+        130px 145px;
+      background-position:
+        10% 10%,
+        55% 20%,
+        32% 42%,
+        70% 55%,
+        20% 70%,
+        45% 18%,
+        18% 58%,
+        62% 38%,
+        38% 28%,
+        52% 75%,
+        28% 48%,
+        65% 15%,
+        15% 35%,
+        48% 62%,
+        40% 8%;
+      animation: particleFloat2 50s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 1;
+    }
+    
+    @keyframes particleFloat1 {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      100% {
+        transform: translateY(-100vh) translateX(50px);
+      }
+    }
+    
+    @keyframes particleFloat2 {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      100% {
+        transform: translateY(-100vh) translateX(-50px);
+      }
+    }
+
+    .hero-inner { 
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.38em;
+      color: var(--gold);
+      border: 1px solid var(--border-mid);
+      padding: 7px 20px;
+      border-radius: 50px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+      background: var(--card);
+    }
+
+    /* 大標：細體，磅礴 */
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      font-weight: 300;        /* 細體—飄逸感 */
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    /* 強調字：粗體對比 */
+    .hero-title strong {
+      font-weight: 700;
+      color: var(--gold-deep);
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title strong::after {
+      content: '';
+      position: absolute;
+      bottom: 0px; left: 0; right: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    }
+
+    .hero-subtitle {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin: 28px 0 10px;
+      letter-spacing: 0.22em;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s forwards;
+    }
+
+    .hero-tagline {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      font-weight: 300;
+      margin-bottom: 52px;
+      line-height: 2;
+      opacity: 0;
+       letter-spacing: 0.3em;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+
+    .hero-tagline em {
+      color: var(--gold-deep);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(135deg, #4a2e08 0%, #5a3a10 100%);
+      color: #fdf9f2;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      padding: 16px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 1px solid rgba(200,160,80,0.2);
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(74,46,8,0.28);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn-primary:hover::before {
+      opacity: 1;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #2e1a02 0%, #3e2406 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(74,46,8,0.35),
+                  0 0 24px rgba(240,210,160,0.35),
+                  0 0 60px rgba(235,205,155,0.18);
+      border-color: var(--gold-light);
+    }
+
+    .hero-note {
+      margin-top: 20px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      letter-spacing: 0.16em;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.1s forwards;
+      text-align: center;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 28px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-mid), transparent);
+    }
+    .divider-star {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 88px 0; }
+
+    /* Section label：極細英文，間距大 */
+    .section-label {
+      text-align: left;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.45em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 300;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+    .section-label::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-light), transparent);
+    }
+
+    /* 中標：粗體，有份量 */
+    .section-title {
+      text-align: left;
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.55rem, 5vw, 2.1rem);
+      font-weight: 700;       /* 粗體—對比大標的細 */
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.45;
+      letter-spacing: 0.1em;
+    }
+
+    .section-sub {
+      text-align: left;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 52px;
+      line-height: 2;
+    }
+
+    /* ── FIT SECTION ── */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) { .fit-grid { grid-template-columns: 1fr; } }
+
+    .fit-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .fit-card.yes {
+      border-left: 3px solid #6ba87a;
+    }
+    .fit-card.no {
+      border-left: 3px solid #c67a7a;
+    }
+    .fit-card:hover {
+      box-shadow: 0 8px 32px rgba(120,100,60,0.15);
+      transform: translateY(-2px);
+    }
+    .fit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .fit-card.yes::before { background: linear-gradient(90deg, transparent, rgba(107,168,122,0.6), transparent); }
+    .fit-card.no::before  { background: linear-gradient(90deg, transparent, rgba(198,122,122,0.5), transparent); }
+
+    .fit-card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .fit-card.yes .fit-card-title { color: #5a9a6a; }
+    .fit-card.no  .fit-card-title { color: #a06060; }
+
+    .fit-list { list-style: none; }
+    .fit-list li {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(160,130,80,0.08);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.65;
+    }
+    .fit-list li:last-child { border-bottom: none; }
+    .fit-list li span:first-child { flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
+
+    /* ── BENEFITS ── */
+    .benefits-list { list-style: none; }
+    .benefit-item {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .benefit-item:last-child { border-bottom: none; }
+
+    .benefit-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border: 1px solid var(--border-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    /* 小標：中粗，清晰 */
+    .benefit-content h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 5px;
+      letter-spacing: 0.1em;
+    }
+    .benefit-content p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    /* ── METHOD CARDS ── */
+    .method-cards { display: grid; grid-template-columns: 1fr; gap: 18px; }
+
+    .method-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .method-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 48px rgba(154,122,58,0.18),
+                  0 0 0 1px var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .method-icon { font-size: 1.6rem; margin-bottom: 18px; display: block; }
+
+    .method-label {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.42em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 300;
+    }
+
+    /* 方法名：粗體 */
+    .method-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: 0.14em;
+    }
+
+    .method-desc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.95;
+    }
+
+    .method-card-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 80px; height: 80px;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+      border-radius: 50% 0 0 0;
+      opacity: 0.5;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      box-shadow: 0 6px 24px rgba(120,100,60,0.12);
+      transform: translateY(-1px);
+    }
+    .faq-item.open { 
+      border-color: var(--gold-light);
+      box-shadow: 0 6px 28px rgba(154,122,58,0.15);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 28px;
+      text-align: left;
+      color: var(--text);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.93rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.3s;
+      line-height: 1.6;
+    }
+    .faq-item.open .faq-q { color: var(--gold-deep); }
+
+    .faq-arrow {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border: 1px solid var(--border-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--gold);
+      transition: transform 0.3s ease, background 0.3s;
+    }
+    .faq-item.open .faq-arrow {
+      transform: rotate(45deg);
+      background: var(--gold-dim);
+      border-color: var(--gold);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 28px;
+    }
+    .faq-a-inner {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 2;
+      padding-bottom: 24px;
+    }
+
+    /* ── FOOTER CTA ── */
+    .final-cta {
+      padding: 100px 28px;
+      text-align: left;
+      position: relative;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+
+    /* 大結語：細體 */
+    .final-cta h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+    .final-cta h2 strong {
+      font-weight: 700;
+      color: var(--gold-deep);
+    }
+
+    .final-cta p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto 44px;
+      line-height: 2.1;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 28px;
+      text-align: left;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.76rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      letter-spacing: 0.14em;
+      background: var(--bg2);
+    }
+    footer span { color: var(--gold); }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 4px; }
+
+    /* ── Section backgrounds ── */
+    .bg-alt { background: rgba(240,236,227,0.80); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .btn-primary { padding: 12px 18px; font-size: 0.8rem; letter-spacing: 0.1em; }
+      .faq-q { padding: 18px 20px; font-size: 0.88rem; }
+      .faq-a { padding: 0 20px; }
+      .method-card, .fit-card { padding: 24px; }
+      nav { padding: 12px 22px; }
+    }
+
+    /* ══ SPA NAVIGATION ════════════════════════════════════════════ */
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .nav-tab {
+      background: none;
+      border: none;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.8);
+      padding: 7px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .nav-tab:hover { color: #ffffff; background: rgba(200,160,80,0.15); }
+    .nav-tab.active { color: #ffffff; background: rgba(200,160,80,0.15); font-weight: 600; }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1px solid rgba(200,160,80,0.4);
+      color: #ffffff;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 20px 20px;
+      background: linear-gradient(
+        160deg,
+        rgba(185,148,95,0.97) 0%,
+        rgba(200,162,108,0.97) 50%,
+        rgba(185,148,95,0.97) 100%
+      );
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(220,185,130,0.2);
+      position: fixed;
+      top: 61px; left: 0; right: 0;
+      z-index: 99;
+    }
+    .mobile-menu.open { display: flex; }
+    .mob-tab {
+      background: none;
+      border: none;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.85);
+      padding: 12px 16px;
+      text-align: left;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .mob-tab:hover { background: rgba(200,160,80,0.15); color: #ffffff; }
+    .mob-cta {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 16px;
+      text-align: left;
+      background: var(--gold);
+      color: #fdf9f2;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      border-radius: 50px;
+      text-decoration: none;
+    }
+
+    /* ══ Refined Navigation Finish ═══════════════════════════════ */
+    nav {
+      padding: 14px 34px;
+      background:
+        linear-gradient(180deg, rgba(223,196,158,0.78), rgba(204,170,123,0.66)),
+        rgba(214,181,133,0.68);
+      backdrop-filter: blur(22px) saturate(1.08);
+      -webkit-backdrop-filter: blur(22px) saturate(1.08);
+      border-bottom: 1px solid rgba(255,247,231,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.24),
+        0 10px 34px rgba(112,80,45,0.10);
+    }
+    nav::after {
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.10), transparent 32%, rgba(104,69,34,0.04) 100%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 0 1px,
+          transparent 1px 14px
+        );
+      opacity: 0.55;
+    }
+    .nav-logo {
+      color: rgba(255,255,255,0.96) !important;
+      font-weight: 700;
+      letter-spacing: 0.38em !important;
+      text-shadow: 0 1px 10px rgba(88,58,26,0.22) !important;
+    }
+    .nav-tab {
+      color: rgba(255,255,255,0.82);
+    }
+    .nav-tab:hover,
+    .nav-tab.active {
+      color: #fffaf2;
+      background: rgba(255,255,255,0.13);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+    }
+    .nav-cta {
+      border-color: rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.09);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .nav-hamburger {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.10);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.18),
+        0 8px 20px rgba(108,76,42,0.10);
+      color: #fffaf2;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s, background 0.25s, border-color 0.25s;
+    }
+    .nav-hamburger:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(255,255,255,0.42);
+    }
+    .hamburger-lines {
+      width: 17px;
+      display: grid;
+      gap: 4px;
+    }
+    .hamburger-lines span {
+      display: block;
+      height: 1.5px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.92);
+    }
+    .mobile-menu {
+      top: 73px;
+      margin: 0 12px;
+      border-radius: 0 0 18px 18px;
+      background:
+        linear-gradient(180deg, rgba(224,197,160,0.94), rgba(199,163,116,0.92)),
+        rgba(214,181,133,0.92);
+      border: 1px solid rgba(255,247,231,0.24);
+      border-top: 0;
+      box-shadow: 0 18px 42px rgba(96,66,36,0.16);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* ══ PAGE SYSTEM ═════════════════════════════════════════════ */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ══ PAGE HERO (sub-pages) ════════════════════════════════════ */
+    .page-hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 60px;
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero-inner { max-width: 640px; text-align: left; margin: 0 auto; }
+
+    /* ══ ABOUT PAGE ══════════════════════════════════════════════ */
+    .about-text {
+      max-width: 560px;
+      margin: 0 auto;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 2.1;
+      text-align: left;
+      letter-spacing: 0.08em;
+    }
+    .about-text p { margin-bottom: 24px; }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 8px;
+    }
+    @media (max-width: 560px) { .values-grid { grid-template-columns: 1fr; } }
+
+    .value-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .value-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(120,100,60,0.14);
+      border-color: var(--gold-light);
+    }
+    .value-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .value-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 0.1em;
+    }
+    .value-card p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+      letter-spacing: 0.06em;
+    }
+
+    /* ══ COURSES PAGE ════════════════════════════════════════════ */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .course-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .course-card:hover { 
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(120,100,60,0.16),
+                  0 0 0 1px var(--gold-light);
+      border-color: var(--gold-light);
+    }
+    .course-card.placeholder { opacity: 0.75; }
+    .course-tag {
+      display: inline-block;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      border: 1px solid var(--border-mid);
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .course-emoji { font-size: 2rem; margin-bottom: 12px; }
+    .course-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: 0.1em;
+    }
+    .course-desc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.9;
+      letter-spacing: 0.07em;
+      margin-bottom: 18px;
+    }
+    .course-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .course-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .course-price {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      letter-spacing: 0.1em;
+    }
+    .course-btn {
+      background: var(--gold-dim);
+      color: var(--gold-deep);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      padding: 9px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 1px solid var(--border-mid);
+      transition: all 0.25s;
+    }
+    .course-btn:hover { background: var(--gold); color: #fdf9f2; border-color: var(--gold); }
+
+    /* ══ TREEHOUSE PAGE ══════════════════════════════════════════ */
+    .treehouse-intro {
+      text-align: left;
+      margin-bottom: 52px;
+    }
+    .treehouse-icon { font-size: 3.5rem; margin-bottom: 20px; }
+
+    .treehouse-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 52px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .rule-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .rule-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .rule-item strong {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .rule-item p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      letter-spacing: 0.07em;
+      margin: 0;
+    }
+
+    .treehouse-cta-box {
+      text-align: left;
+      background: var(--card);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 48px 32px;
+      box-shadow: var(--shadow);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .treehouse-prompt {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.16em;
+      margin-bottom: 28px;
+    }
+
+    /* ══ VILLAGE STUDIO PAGE ════════════════════════════════════ */
+    .life-studio-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .life-studio-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 44px;
+    }
+    .life-studio-note {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.07em;
+      line-height: 2;
+    }
+    .life-studio-seal {
+      min-height: 180px;
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.78), transparent 28%),
+        linear-gradient(145deg, rgba(250,248,243,0.92), rgba(224,214,194,0.68));
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--gold-deep);
+      position: relative;
+      overflow: hidden;
+    }
+    .life-studio-seal::after {
+      content: '';
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border: 1px solid rgba(154,122,58,0.16);
+      border-radius: 50px;
+    }
+    .life-studio-seal strong {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .life-studio-seal span {
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      position: relative;
+      z-index: 1;
+    }
+    .tool-carousel {
+      position: relative;
+      background: rgba(250,248,243,0.74);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .tool-carousel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,0.44), transparent 38%),
+        repeating-linear-gradient(90deg, transparent 0 18px, rgba(154,122,58,0.025) 19px 20px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .tool-slides {
+      display: flex;
+      transform: translateX(calc(var(--life-slide, 0) * -100%));
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+      z-index: 2;
+    }
+    .tool-slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(260px, 0.94fr);
+      gap: 34px;
+      padding: 38px;
+      align-items: center;
+    }
+    .tool-preview {
+      min-height: 330px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(154,122,58,0.18);
+      background: linear-gradient(145deg, #f7f3ea, #e9dfcf);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 16px 42px rgba(120,100,60,0.14);
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+    }
+    .preview-browser {
+      height: 100%;
+      min-height: 282px;
+      border-radius: 12px;
+      background: rgba(255,253,247,0.94);
+      border: 1px solid rgba(154,122,58,0.18);
+      box-shadow: 0 12px 30px rgba(120,100,60,0.12);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-preview-img {
+      display: block;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.96) contrast(0.98);
+      transform: scale(1.01);
+    }
+    .rise-preview .tool-preview-img {
+      object-position: center 16%;
+    }
+    .calendar-preview .tool-preview-img {
+      object-position: center top;
+    }
+    .preview-top {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 14px;
+      border-bottom: 1px solid rgba(154,122,58,0.12);
+      background: rgba(250,246,238,0.86);
+    }
+    .preview-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(154,122,58,0.36);
+    }
+    .preview-body {
+      padding: 22px;
+      min-height: 248px;
+      position: relative;
+    }
+    .rise-preview .preview-body {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(140,185,160,0.18), transparent 28%),
+        linear-gradient(160deg, #f8f3e8 0%, #eef4ed 100%);
+    }
+    .calendar-preview .preview-body {
+      background:
+        radial-gradient(circle at 74% 24%, rgba(190,150,100,0.16), transparent 26%),
+        linear-gradient(160deg, #fbf5eb 0%, #f1e6d7 100%);
+    }
+    .mini-kicker {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      border: 1px solid rgba(154,122,58,0.2);
+      border-radius: 50px;
+      padding: 3px 9px;
+      margin-bottom: 14px;
+    }
+    .mini-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .mini-lines {
+      display: grid;
+      gap: 8px;
+      max-width: 240px;
+    }
+    .mini-line {
+      height: 8px;
+      border-radius: 50px;
+      background: rgba(154,122,58,0.12);
+    }
+    .mini-line.short { width: 68%; }
+    .rise-card {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 138px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(120,165,135,0.22);
+      box-shadow: 0 12px 24px rgba(90,120,80,0.12);
+    }
+    .rise-ring {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: conic-gradient(#7cae8a 0 72%, rgba(124,174,138,0.18) 72% 100%);
+      display: grid;
+      place-items: center;
+    }
+    .rise-ring::after {
+      content: '25';
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fffdf7;
+      display: grid;
+      place-items: center;
+      color: #6a8d72;
+      font-weight: 700;
+    }
+    .mini-calendar {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 170px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(154,122,58,0.18);
+      box-shadow: 0 12px 24px rgba(120,100,60,0.12);
+    }
+    .mini-day {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: rgba(154,122,58,0.12);
+      border: 1px solid rgba(154,122,58,0.08);
+    }
+    .mini-day.on { background: rgba(154,122,58,0.28); }
+    .tool-copy {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .tool-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .tool-copy h2 {
+      font-size: clamp(1.55rem, 4.8vw, 2.08rem);
+      line-height: 1.45;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .tool-copy p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      letter-spacing: 0.07em;
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .tool-tags span {
+      font-size: 0.72rem;
+      color: var(--gold-deep);
+      letter-spacing: 0.1em;
+      background: var(--gold-dim);
+      border: 1px solid var(--border-mid);
+      border-radius: 50px;
+      padding: 5px 11px;
+    }
+    .tool-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tool-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fdf9f2;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+      border: 1px solid rgba(154,122,58,0.4);
+      border-radius: 50px;
+      padding: 11px 24px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(120,90,35,0.16);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .tool-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(120,90,35,0.2);
+    }
+    .tool-secondary {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      letter-spacing: 0.11em;
+    }
+    .carousel-controls {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 38px 32px;
+    }
+    .carousel-arrows {
+      display: flex;
+      gap: 8px;
+    }
+    .carousel-btn {
+      min-width: 74px;
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 50%;
+      border: 1px solid var(--border-mid);
+      background: rgba(255,253,247,0.78);
+      color: var(--gold-deep);
+      cursor: pointer;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.25s;
+    }
+    .carousel-btn:hover {
+      background: var(--gold);
+      color: #fdf9f2;
+      border-color: var(--gold);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .carousel-tab {
+      min-height: 34px;
+      padding: 5px 2px 7px;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 1px solid rgba(154,122,58,0.16);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .carousel-tab.active {
+      background: transparent;
+      border-color: rgba(154,122,58,0.58);
+      color: var(--gold-deep);
+    }
+    .life-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .life-detail-card {
+      background: transparent;
+      border: 0;
+      border-left: 1px solid rgba(188,138,126,0.32);
+      border-radius: 0;
+      padding: 4px 0 4px 18px;
+      box-shadow: none;
+      cursor: default;
+    }
+    .life-detail-card strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--text);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .life-detail-card p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      line-height: 1.85;
+      letter-spacing: 0.06em;
+      margin: 0;
+    }
+    .life-page-hero {
+      min-height: auto;
+      padding: 82px 0 0;
+    }
+    .life-hero-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+    .life-hero-inner .hero-title {
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      animation: lifeHeroTitleIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+    }
+    .life-hero-inner .hero-tagline {
+      font-weight: 300;
+      color: var(--text-mid);
+    }
+    .life-studio-section {
+      padding-top: 4px;
+    }
+    .life-studio-wrap {
+      max-width: 660px;
+      padding-left: 46px;
+      padding-right: 46px;
+    }
+    .life-studio-header {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 8px;
+    }
+    .life-studio-header .section-title {
+      font-size: clamp(1.35rem, 4.2vw, 1.72rem);
+      font-weight: 600;
+      margin: 0 0 12px;
+      position: relative;
+      display: block;
+      text-align: left;
+      animation: lifeTitleRise 0.72s ease-out both;
+    }
+    .life-studio-header .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -9px;
+      width: 92px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(154,122,58,0.46), rgba(188,138,126,0.2), transparent);
+      transform-origin: left;
+      animation: lifeTitleLine 0.9s 0.22s ease-out both;
+    }
+    .life-studio-header .life-share-row {
+      margin: 0 0 1px;
+      flex: 0 0 auto;
+    }
+    @keyframes lifeTitleRise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes lifeTitleLine {
+      from { transform: scaleX(0); opacity: 0; }
+      to { transform: scaleX(1); opacity: 1; }
+    }
+    @keyframes lifeHeroTitleIn {
+      from { opacity: 0; transform: translateY(8px); filter: blur(2px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    .life-studio-intro {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      margin-bottom: 22px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .life-studio-note {
+      font-size: 0.96rem;
+      line-height: 1.8;
+      margin: 0;
+      color: var(--text-mid);
+    }
+    .life-studio-seal {
+      min-height: auto;
+      padding: 12px 16px;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 12px;
+      border-radius: var(--radius-sm);
+    }
+    .life-studio-seal::after {
+      width: 56px;
+      height: 56px;
+      right: 16px;
+    }
+    .life-studio-seal strong {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    .life-studio-seal span {
+      font-size: 0.61rem;
+      letter-spacing: 0.2em;
+    }
+    .life-share-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+    .share-page-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 1px solid var(--border-mid);
+      background: rgba(255,253,247,0.74);
+      color: var(--gold-deep);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(120,100,60,0.08);
+      transition: all 0.25s;
+    }
+    .share-page-btn:hover {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+    .share-status {
+      min-height: 1.5em;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+    }
+    .tool-carousel {
+      max-width: 560px;
+      margin: 0 auto;
+      border-radius: var(--radius-sm);
+    }
+    .tool-slide {
+      grid-template-columns: minmax(220px, 0.86fr) minmax(0, 1fr);
+      gap: 24px;
+      padding: 26px 28px 24px;
+    }
+    .tool-preview {
+      min-height: 236px;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+    }
+    .preview-browser {
+      min-height: 204px;
+      border-radius: 10px;
+    }
+    .preview-top { height: 28px; }
+    .preview-body {
+      min-height: 176px;
+      padding: 16px;
+    }
+    .mini-kicker {
+      font-size: 0.56rem;
+      margin-bottom: 10px;
+    }
+    .mini-title {
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+    }
+    .mini-line { height: 6px; }
+    .rise-card {
+      width: 96px;
+      padding: 12px;
+      right: 14px;
+      bottom: 14px;
+      border-radius: 12px;
+    }
+    .rise-ring {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 9px;
+    }
+    .rise-ring::after {
+      width: 38px;
+      height: 38px;
+      font-size: 0.8rem;
+    }
+    .mini-calendar {
+      width: 118px;
+      gap: 6px;
+      padding: 11px;
+      right: 14px;
+      bottom: 14px;
+      border-radius: 13px;
+    }
+    .mini-day { border-radius: 7px; }
+    .tool-label {
+      font-size: 0.6rem;
+      margin-bottom: 6px;
+    }
+    .tool-copy h2 {
+      font-size: clamp(1.18rem, 3.6vw, 1.45rem);
+      margin-bottom: 9px;
+    }
+    .tool-copy p {
+      font-size: 0.79rem;
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .tool-tags {
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .tool-tags span {
+      font-size: 0.66rem;
+      padding: 4px 9px;
+    }
+    .tool-link {
+      padding: 8px 18px;
+      font-size: 0.76rem;
+      box-shadow: 0 8px 18px rgba(120,90,35,0.13);
+    }
+    .tool-secondary {
+      font-size: 0.68rem;
+      line-height: 1.7;
+    }
+    .carousel-controls {
+      padding: 0 28px 22px;
+    }
+    .carousel-btn {
+      width: auto;
+      min-width: 68px;
+      height: 32px;
+      font-size: 0.66rem;
+    }
+    .carousel-tab {
+      width: auto;
+      min-height: 30px;
+      padding: 4px 0 6px;
+    }
+    .carousel-tab.active { width: auto; }
+    .life-detail-grid {
+      max-width: 560px;
+      margin: 22px auto 0;
+      gap: 16px;
+    }
+    .life-detail-card {
+      padding: 2px 0 2px 16px;
+    }
+    .life-detail-card strong {
+      font-size: 0.84rem;
+      margin-bottom: 5px;
+    }
+    .life-detail-card p {
+      font-size: 0.74rem;
+      line-height: 1.75;
+    }
+    .life-studio-caption {
+      margin: 2px 0 0;
+      padding: 2px 0 0 18px;
+      border-left: 1px solid rgba(188,138,126,0.35);
+      color: #9a746e;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      line-height: 1.9;
+    }
+    .share-page-btn {
+      min-height: 40px;
+      padding: 9px 18px;
+      background: linear-gradient(135deg, rgba(188,138,126,0.18), rgba(255,251,247,0.94));
+      border-color: rgba(188,138,126,0.42);
+      color: #7c524e;
+      box-shadow: 0 10px 22px rgba(160,110,90,0.12);
+    }
+    .share-page-btn:hover {
+      background: linear-gradient(135deg, rgba(188,138,126,0.28), rgba(255,251,247,0.98));
+      border-color: rgba(188,138,126,0.62);
+      color: #7c524e;
+    }
+    .tool-carousel {
+      background:
+        linear-gradient(150deg, rgba(255,253,249,0.86), rgba(248,241,235,0.78)),
+        rgba(250,248,243,0.72);
+      border-color: rgba(188,138,126,0.16);
+      box-shadow: 0 12px 34px rgba(128,92,74,0.10);
+    }
+    .tool-carousel::before {
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.58), transparent 38%),
+        radial-gradient(circle at 88% 12%, rgba(188,138,126,0.08), transparent 26%);
+    }
+    .tool-preview {
+      background:
+        linear-gradient(145deg, rgba(255,251,246,0.96), rgba(241,230,221,0.76));
+      border-color: rgba(188,138,126,0.16);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.72), 0 12px 28px rgba(128,92,74,0.11);
+    }
+    .preview-browser {
+      background: rgba(255,254,250,0.92);
+      border-color: rgba(188,138,126,0.14);
+      box-shadow: 0 10px 22px rgba(128,92,74,0.09);
+    }
+    .preview-dot { background: rgba(188,138,126,0.38); }
+    .mini-kicker {
+      border: 0;
+      border-bottom: 1px solid rgba(188,138,126,0.26);
+      border-radius: 0;
+      padding: 0 0 4px;
+      color: #9a746e;
+    }
+    .tool-label {
+      color: #9a746e;
+    }
+    .tool-tags {
+      gap: 0;
+      align-items: center;
+      color: var(--text-dim);
+    }
+    .tool-tags span {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      color: #9a746e;
+      font-size: 0.66rem;
+    }
+    .tool-tags span + span::before {
+      content: '／';
+      margin: 0 7px;
+      color: rgba(154,122,58,0.35);
+    }
+    .tool-link {
+      background: linear-gradient(135deg, #8b615c, var(--gold));
+      border-color: rgba(188,138,126,0.2);
+      box-shadow: 0 9px 20px rgba(128,92,74,0.13);
+    }
+    .carousel-btn {
+      background: rgba(255,253,249,0.72);
+      border-color: rgba(188,138,126,0.22);
+      color: #8b615c;
+    }
+    .carousel-btn:hover {
+      background: #8b615c;
+      border-color: #8b615c;
+    }
+    .carousel-tab {
+      background: transparent;
+    }
+    .carousel-tab.active {
+      background: transparent;
+      color: #8b615c;
+      border-color: rgba(139,97,92,0.56);
+    }
+    .life-detail-card {
+      background: transparent;
+      border-color: rgba(188,138,126,0.34);
+      box-shadow: none;
+    }
+    .life-detail-card strong {
+      color: #7c524e;
+    }
+
+
+    /* ══ COLUMN PAGE ═════════════════════════════════════════════ */
+    .column-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .col-tag {
+      background: none;
+      border: 1px solid var(--border-mid);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      padding: 7px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .col-tag:hover, .col-tag.active {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      color: var(--gold-deep);
+      font-weight: 600;
+    }
+
+    .column-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) {
+      .column-grid { grid-template-columns: 1fr; }
+    }
+
+    .col-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .col-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .col-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .col-card.hidden { display: none; }
+
+    .col-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .col-category {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      border: 1px solid var(--border-mid);
+      padding: 3px 10px;
+      border-radius: 50px;
+    }
+    .col-date {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    .col-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+    }
+
+    .col-excerpt {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.9;
+      letter-spacing: 0.06em;
+      flex: 1;
+    }
+
+    .col-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 4px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .col-author {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-weight: 300;
+    }
+    .col-readmore {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      color: var(--gold-deep);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .col-readmore:hover { color: var(--gold); }
+
+    /* ══ MOBILE：左對齊 & 整體整齊 ══════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* Nav padding 縮小 */
+      nav { padding: 16px 20px; }
+
+      /* Hero 全部左對齊 */
+      .hero { text-align: left; padding: 100px 20px 64px; }
+      .hero-cta-row { justify-content: center; }
+      .hero-inner { max-width: 100%; }
+      .hero-badge { margin-left: 0; }
+      .hero-title { font-size: clamp(1.8rem, 8vw, 2.6rem); letter-spacing: 0.06em; }
+      .hero-subtitle { letter-spacing: 0.14em; text-align: center; }
+      .hero-tagline { font-size: 0.95rem; text-align: center; }
+
+      /* 各 section 標題左對齊 */
+      .section-label { text-align: left; }
+      .section-title { text-align: left; }
+      .section-sub   { text-align: left; margin-left: 0; margin-right: 0; }
+
+      /* 子頁面 hero 左對齊 */
+      .page-hero { padding: 90px 0 40px; }
+      .page-hero-inner { text-align: left; }
+
+      /* container 左右 padding 統一 */
+      .container { padding: 0 20px; }
+
+      /* section 上下距離縮小 */
+      .section { padding: 56px 0; }
+
+      /* About values 單欄 */
+      .values-grid { grid-template-columns: 1fr; gap: 14px; }
+      .about-text { text-align: left; }
+
+      /* Treehouse */
+      .treehouse-intro { text-align: left; }
+      .treehouse-cta-box { padding: 28px 20px; }
+      .treehouse-prompt { font-size: 1rem; }
+      .treehouse-rules { margin-left: 0; margin-right: 0; }
+      .rule-item { padding: 18px 16px; gap: 14px; }
+      .life-page-hero { min-height: auto; padding: 78px 0 0; }
+      .life-studio-section { padding-top: 4px; }
+      .life-studio-wrap { padding-left: 36px; padding-right: 36px; }
+      .life-studio-header {
+        margin-bottom: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      .life-studio-header .life-share-row {
+        width: 100%;
+      }
+      .life-studio-intro { grid-template-columns: 1fr; gap: 12px; margin-bottom: 18px; }
+      .life-studio-seal { min-height: auto; }
+      .share-page-btn { width: 100%; }
+      .tool-slide { grid-template-columns: 1fr; padding: 18px 16px 20px; gap: 18px; }
+      .tool-preview { min-height: 218px; padding: 12px; }
+      .preview-browser { min-height: 194px; }
+      .preview-body { min-height: 166px; padding: 14px; }
+      .rise-card { width: 90px; right: 12px; bottom: 12px; }
+      .mini-calendar { width: 112px; right: 12px; bottom: 12px; gap: 5px; padding: 10px; }
+      .tool-copy h2 { font-size: clamp(1.16rem, 6vw, 1.45rem); }
+      .tool-tags span { padding: 0; }
+      .carousel-controls { padding: 0 16px 18px; }
+      .life-detail-grid { grid-template-columns: 1fr; gap: 12px; }
+
+      /* Final CTA 左對齊 */
+      .final-cta { padding: 64px 20px; text-align: left; }
+      .final-cta h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
+      .final-cta p  { margin-left: 0; margin-right: 0; max-width: 100%; }
+
+      /* FAQ */
+      .faq-q { padding: 18px 16px; font-size: 0.88rem; }
+      .faq-a { padding: 0 16px; }
+      .faq-a-inner { font-size: 0.84rem; }
+
+      /* 課程卡片 */
+      .course-card { padding: 22px 18px; }
+      .course-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .course-meta { gap: 10px; }
+
+      /* Benefit items */
+      .benefit-item { gap: 14px; padding: 18px 0; }
+      .benefit-content h3 { font-size: 0.95rem; }
+
+      /* Method cards */
+      .method-card { padding: 24px 18px; }
+      .method-name { font-size: 1.2rem; }
+
+      /* Fit cards */
+      .fit-card { padding: 20px 16px; }
+      .fit-list li { font-size: 0.83rem; }
+
+      /* 引導者卡片 */
+      .teacher-card { flex-direction: column; gap: 18px; padding: 22px 18px; }
+      .teacher-avatar { width: 76px; height: 76px; font-size: 1.8rem; }
+      .teacher-name { font-size: 1.2rem; }
+
+      /* Footer */
+      footer { padding: 24px 20px; text-align: left; }
+
+      /* 防止長字串撐破版面 */
+      * { word-break: break-word; }
+    }
+
+
+    /* ══ TEACHER PAGE ════════════════════════════════════════════ */
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .teacher-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .teacher-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(120,100,60,0.15);
+      border-color: var(--gold-light);
+    }
+    .teacher-avatar {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 2px solid var(--border-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      overflow: hidden;
+    }
+    .teacher-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .teacher-info { flex: 1; }
+    .teacher-role {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .teacher-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .teacher-bio {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.95;
+      letter-spacing: 0.07em;
+      margin-bottom: 18px;
+    }
+    .teacher-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .teacher-tag {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      color: var(--gold-deep);
+      background: var(--gold-dim);
+      border: 1px solid var(--border-mid);
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    @media (max-width: 560px) {
+      .teacher-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px 20px;
+      }
+      .teacher-avatar { width: 80px; height: 80px; font-size: 1.8rem; }
+    }
+
+
+    /* ══ SKILLS PAGE ═════════════════════════════════════════════ */
+    .skills-toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .skills-filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .filter-btn {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+      color: var(--gold-deep);
+    }
+    .skills-refresh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      background: none;
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+    .skills-refresh:hover { color: var(--gold); border-color: var(--gold); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(120,100,60,0.14);
+    }
+    .skill-card.offer:hover {
+      border-color: rgba(107,168,122,0.5);
+    }
+    .skill-card.want:hover {
+      border-color: var(--gold-light);
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .skill-card.offer::before {
+      background: linear-gradient(90deg, transparent, rgba(100,160,100,0.5), transparent);
+    }
+    .skill-card.want::before {
+      background: linear-gradient(90deg, transparent, rgba(154,122,58,0.4), transparent);
+    }
+    .skill-type {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .skill-type.offer { color: #5a9a6a; background: rgba(90,154,106,0.1); border: 1px solid rgba(90,154,106,0.25); }
+    .skill-type.want  { color: var(--gold-deep); background: var(--gold-dim); border: 1px solid var(--border-mid); }
+
+    .skill-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+    .skill-content {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .skill-desc {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+    .skill-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      gap: 10px;
+    }
+    .skill-author {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+    .skill-contact {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.75rem;
+      color: var(--gold-deep);
+      background: var(--gold-dim);
+      border: 1px solid var(--border-mid);
+      padding: 5px 12px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .skill-contact:hover { background: var(--gold); color: #fdf9f2; }
+
+    .skills-empty {
+      text-align: left;
+      padding: 52px 0;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      line-height: 2;
+    }
+    .skills-loading {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      letter-spacing: 0.14em;
+      padding: 40px 0;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .skills-submit-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+      flex-wrap: wrap;
+    }
+    .skills-submit-text h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .skills-submit-text p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.07em;
+    }
+    .btn-secondary {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: var(--gold-deep);
+      background: var(--gold-dim);
+      border: 1px solid var(--border-mid);
+      padding: 11px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+    .btn-secondary:hover { background: var(--gold); color: #fdf9f2; border-color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .skills-submit-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .skills-toolbar { gap: 8px; }
+    }
+
+
+    /* ══ 建造中 Banner ═══════════════════════════════════════════ */
+    .wip-banner {
+      background: rgba(154,122,58,0.08);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      padding: 12px 20px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--gold-deep);
+      letter-spacing: 0.12em;
+    }
+    .wip-banner span { font-size: 1rem; flex-shrink: 0; }
+
+
+    /* ══ Hero CTA Row ════════════════════════════════════════════ */
+    .hero-cta-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+    .btn-line {
+      display: block;
+      width: fit-content;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: #fdf9f2;
+      background: linear-gradient(135deg, #9a7040 0%, #aa804d 100%);
+      border: 1px solid rgba(180,140,80,0.3);
+      padding: 15px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(154,112,64,0.2);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-line::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn-line:hover::before {
+      opacity: 1;
+    }
+    .btn-line:hover {
+      background: linear-gradient(135deg, #7a5a2a 0%, #8a6838 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(154,112,64,0.28),
+                  0 0 20px rgba(200,160,100,0.25);
+      border-color: var(--gold);
+    }
+    @media (max-width: 480px) {
+      .hero-cta-row { gap: 8px; justify-content: center; }
+      .hero-cta-row .btn-primary,
+      .hero-cta-row .btn-line {
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        padding: 12px 16px;
+        margin: 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<canvas id="stars-canvas"></canvas>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home');return false;" style="color:#ffffff !important;text-decoration:none;letter-spacing:0.5em;text-shadow:0 1px 6px rgba(80,40,10,0.35), 0 2px 12px rgba(60,30,5,0.2);">初星群 ✦</a>
+  <div class="nav-links">
+    <button class="nav-tab" onclick="showPage('home')" data-page="home">首頁</button>
+    <button class="nav-tab" onclick="showPage('about')" data-page="about">關於我們</button>
+    <button class="nav-tab" onclick="showPage('courses')" data-page="courses">課程・活動</button>
+    <button class="nav-tab" onclick="showPage('treehouse')" data-page="treehouse">初星樹洞</button>
+  </div>
+  <a href="https://line.me/ti/g2/PwykU3Dg-k8k6Lnwj-swf5nsSwm4to0a6HFQLg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="nav-cta" target="_blank" rel="noopener">加入村落 →</a>
+  <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="選單">
+    <span class="hamburger-lines" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mob-tab" onclick="showPage('home');toggleMobileMenu()">首頁</button>
+  <button class="mob-tab" onclick="showPage('about');toggleMobileMenu()">關於我們</button>
+  <button class="mob-tab" onclick="showPage('courses');toggleMobileMenu()">課程・活動</button>
+  <button class="mob-tab" onclick="showPage('treehouse');toggleMobileMenu()">初星樹洞</button>
+  <button class="mob-tab" onclick="showPage('life-studio');toggleMobileMenu()">村民生活練習室</button>
+</div>
+
+<div id="page-home" class="page active">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✦ Starry Dawn Circle</div>
+    <h1 class="hero-title">
+      與我們一起，<br>
+      練習實現<strong>你的理想生活</strong>。
+    </h1>
+    <p class="hero-subtitle">初星群 Starry Dawn Circle</p>
+    <p class="hero-tagline">
+      成為自己的好夥伴<br>
+      找到自己的好隊友
+    </p>
+    <div class="hero-cta-row" style="opacity:0;animation:fadeUp 0.8s 0.9s forwards;">
+      <a href="https://line.me/ti/g2/PwykU3Dg-k8k6Lnwj-swf5nsSwm4to0a6HFQLg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="btn-primary" target="_blank" rel="noopener">加入村落</a>
+      <a href="https://line.me/R/ti/p/@455ojikt" class="btn-line" target="_blank" rel="noopener">加入官方 LINE</a>
+    </div>
+    <p class="hero-note">免費加入 · 找到自己真心喜歡的道路</p>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-star">✦</div>
+  <div class="divider-line"></div>
+</div>
+
+<!-- FIT SECTION -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-label reveal">適合你嗎？</div>
+    <h2 class="section-title reveal">這樣的你適合加入初星群</h2>
+    <p class="section-sub reveal">不是每個地方都適合每個人。這裡是真心推薦給你的，也是真心告訴你可能不合適的。</p>
+
+    <div class="fit-grid reveal">
+      <!-- YES -->
+      <div class="fit-card yes">
+        <div class="fit-card-title">✦ 你很可能適合</div>
+        <ul class="fit-list">
+          <li><span>✅</span><span>對自我成長有興趣，但找不到明確方向</span></li>
+          <li><span>✅</span><span>想改變、想前進，但一個人缺乏動力與支持</span></li>
+          <li><span>✅</span><span>下班後常覺得累、混亂、不知道自己在幹嘛</span></li>
+          <li><span>✅</span><span>買過課程、學了很多，但實際生活沒什麼改變</span></li>
+          <li><span>✅</span><span>不需要很熱鬧，但希望有人理解、有人一起走</span></li>
+        </ul>
+      </div>
+
+      <!-- NO -->
+      <div class="fit-card no">
+        <div class="fit-card-title">✦ 可能不合適</div>
+        <ul class="fit-list">
+          <li><span>❌</span><span>想快速成功、速轉職、速賺錢的</span></li>
+          <li><span>❌</span><span>只想引導者給答案、不想自我探索</span></li>
+          <li><span>❌</span><span>完全不想跟任何人有互動或連結</span></li>
+          <li><span>❌</span><span>完全無法接受能量／直覺類語言（這裡偶爾會出現）</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- METHOD -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-label reveal">我們怎麼做</div>
+    <h2 class="section-title reveal">覺察 × 共學 × 共創</h2>
+    <p class="section-sub reveal">三種方式交織在一起，讓改變不只是一個念頭，而是真實的生活質地。</p>
+
+    <div class="method-cards">
+      <div class="method-card reveal">
+        <span class="method-icon">🌿</span>
+        <div class="method-label">Method 01</div>
+        <div class="method-name">覺察</div>
+        <p class="method-desc">不是冥想課，也不是心理治療。是每天的小觀察——你的身體在說什麼？這個反應從哪來？你真正想要的是什麼？<br><br>當你開始聽懂自己，很多卡住的地方就會鬆開。</p>
+        <div class="method-card-accent"></div>
+      </div>
+
+      <div class="method-card reveal">
+        <span class="method-icon">📌</span>
+        <div class="method-label">Method 02</div>
+        <div class="method-name">共學</div>
+        <p class="method-desc">學很多但沒用，問題通常不是「學得不夠」，是沒有練習的空間。<br><br>共學是把知識接回生活：小任務、主題練習、有人一起試錯——讓改變不只在腦袋裡轉。</p>
+        <div class="method-card-accent"></div>
+      </div>
+
+      <div class="method-card reveal">
+        <span class="method-icon">🤝</span>
+        <div class="method-label">Method 03</div>
+        <div class="method-name">共創</div>
+        <p class="method-desc">理想生活不是獨行俠的事。在社群裡，你會遇到有共鳴的人——不是要你變朋友，是讓你知道有人正在走同樣的路，而且走得下去。</p>
+        <div class="method-card-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">FAQ</div>
+    <h2 class="section-title reveal">你可能想問的</h2>
+
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>我很安靜、不擅長社交，也適合嗎？</span>
+          <span class="faq-arrow">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            適合。這裡不需要你很活躍或很外向。你可以只是安靜在旁邊觀察，也可以只在有共鳴時說一句話。我們的核心不是熱鬧，是你在自己的節奏裡有所收穫就夠了。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>會一直推銷課程嗎？</span>
+          <span class="faq-arrow">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            不會。這裡不是課程銷售管道。偶爾會分享相關資源，但不是主要目的，也沒有業績壓力。你不用擔心每隔幾天就要被推銷。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>我之前學了很多，但什麼都落不了地。這裡真的有差嗎？</span>
+          <span class="faq-arrow">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            「知道很多但做不到」幾乎是所有人加入前的狀態。差別在於：這裡有練習的容器，有人陪伴你試，有人見證你走的每一步。知識需要一個練習的場所才能真正成為你的一部分——這就是我們在做的事。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>加入後第一步做什麼？</span>
+          <span class="faq-arrow">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            加入後會有簡單的歡迎流程，讓你認識這裡的節奏和空間。你不需要馬上做任何事，先感受一下這個地方適不適合你就好。第一週的唯一任務是：觀察。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>需要每天打卡嗎？</span>
+          <span class="faq-arrow">＋</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            不需要強制打卡。但我們相信節奏很重要——不是要你每天表演給別人看，而是讓小小的規律幫助你把事情真正做到。你可以選擇你能維持的節奏，我們會配合你，不是催你。
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end faq-list -->
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container reveal" style="position:relative;z-index:1;">
+    <h2>
+      不需要<strong>準備好</strong>，<br>
+      只需要準備好<strong>開始</strong>。
+    </h2>
+    <p>
+      理想生活不是突然降臨的，<br>
+      是一次次小小的選擇和練習累積出來的。<br>
+      歡迎來初星群，和我們一起走。
+    </p>
+    <a href="https://line.me/ti/g2/PwykU3Dg-k8k6Lnwj-swf5nsSwm4to0a6HFQLg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="btn-primary" target="_blank" rel="noopener">加入村落</a>
+    <p style="margin-top:16px;font-size:0.78rem;color:var(--text-dim);">免費加入 · 找到自己真心喜歡的道路</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>✦ 初星群 Starry Dawn Circle &nbsp;©&nbsp;<span id="year"></span> &nbsp;All rights reserved.</p>
+  <p style="margin-top:8px;font-size:0.72rem;">這裡是陪伴你練習的地方，不是指導你的地方。</p>
+</footer>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+  // Auto year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Stars canvas
+  (function() {
+    const canvas = document.getElementById('stars-canvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.body.scrollHeight;
+      initStars();
+    }
+
+    function initStars() {
+      stars = [];
+      const count = Math.floor((canvas.width * canvas.height) / 8000);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.2 + 0.2,
+          a: Math.random(),
+          speed: Math.random() * 0.4 + 0.1,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+      drawStars();
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        const twinkle = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(s.phase));
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(160, 120, 50, ${twinkle * 0.25})`;
+        ctx.fill();
+      });
+    }
+
+    let frame = 0;
+    function animate() {
+      frame++;
+      if (frame % 3 === 0) {
+        stars.forEach(s => { s.phase += s.speed * 0.04; });
+        drawStars();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+  })();
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = '0';
+    });
+
+    // Open clicked
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+
+  // ══ Column filter ══
+  function filterColumn(btn, cat) {
+    document.querySelectorAll('.col-tag').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.col-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  // ══ SPA Page Router ══════════════════════════════════════
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+    const tab = document.querySelector('.nav-tab[data-page="' + pageId + '"]');
+    if (tab) tab.classList.add('active');
+    if (history.replaceState) {
+      history.replaceState(null, '', pageId === 'home' ? location.pathname : '#' + pageId);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const yr = new Date().getFullYear();
+    ['year','year-about','year-column','year-courses','year-treehouse','year-life-studio'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = yr;
+    });
+  }
+
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.nav-hamburger');
+    if (menu && menu.classList.contains('open') &&
+        !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+
+
+  // ══ SPA Page Router ══════════════════════════════════════
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+    const tab = document.querySelector('.nav-tab[data-page="' + pageId + '"]');
+    if (tab) tab.classList.add('active');
+    if (history.replaceState) {
+      history.replaceState(null, '', pageId === 'home' ? location.pathname : '#' + pageId);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const yr = new Date().getFullYear();
+    ['year','year-about','year-column','year-courses','year-treehouse','year-life-studio'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = yr;
+    });
+  }
+
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.nav-hamburger');
+    if (menu && menu.classList.contains('open') &&
+        !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+
+
+  // Init
+  let lifeSlideIndex = 0;
+  function setLifeSlide(index) {
+    const carousel = document.getElementById('lifeStudioCarousel');
+    if (!carousel) return;
+    lifeSlideIndex = (index + 2) % 2;
+    carousel.style.setProperty('--life-slide', lifeSlideIndex);
+    document.querySelectorAll('.carousel-tab').forEach((dot, i) => {
+      dot.classList.toggle('active', i === lifeSlideIndex);
+    });
+  }
+
+  function moveLifeSlide(direction) {
+    setLifeSlide(lifeSlideIndex + direction);
+  }
+
+  setInterval(() => {
+    if (document.getElementById('page-life-studio')?.classList.contains('active')) {
+      moveLifeSlide(1);
+    }
+  }, 5200);
+
+  async function shareLifeStudioPage() {
+    const status = document.getElementById('lifeShareStatus');
+    const shareUrl = location.origin + location.pathname + '#life-studio';
+    const shareData = {
+      title: '初星群｜村民生活練習室',
+      text: '把照顧自己變成每天都摸得到的一點點練習。',
+      url: shareUrl
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        if (status) status.textContent = '已開啟分享選單';
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(shareUrl);
+        if (status) status.textContent = '已複製連結';
+      } else {
+        window.prompt('複製這個連結分享：', shareUrl);
+        if (status) status.textContent = '請複製連結';
+      }
+    } catch (err) {
+      if (status) status.textContent = '分享已取消';
+    }
+
+    if (status) {
+      clearTimeout(window.lifeShareStatusTimer);
+      window.lifeShareStatusTimer = setTimeout(() => { status.textContent = ''; }, 2400);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const pageFromHash = location.hash.replace('#', '');
+    if (pageFromHash && document.getElementById('page-' + pageFromHash)) {
+      showPage(pageFromHash);
+    }
+    const shareBtn = document.getElementById('lifeShareBtn');
+    if (shareBtn) shareBtn.addEventListener('click', shareLifeStudioPage);
+  });
+
+  if (!location.hash) showPage('home');
+
+</script>
+
+
+<!-- ══ PAGE: ABOUT ══════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="hero-badge" style="opacity:1;animation:none;">✦ About</div>
+        <h1 class="hero-title" style="opacity:1;animation:none;font-size:clamp(2rem,7vw,3.2rem);">
+          初星群，<br>是什麼樣的地方？
+        </h1>
+        <p class="hero-tagline" style="opacity:1;animation:none;">
+          不是課程平台，不是打卡社群，<br>
+          是一個讓你更瞭解自己、<br>過真心喜歡生活的<em>陪伴村</em>。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="wip-banner"><span>🔨</span> 網頁建造中，內容陸續更新，敬請期待。</div>
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">為什麼有初星群？</h2>
+      <div class="about-text">
+        <p>很多人都有想改變的念頭，卻不知道從哪裡開始。<br>買了課、看了書、記了筆記，但生活還是原樣。</p>
+        <p>不是你不夠努力，而是少了一個地方——<br>一個可以不完美、可以慢慢來、有人陪的地方。</p>
+        <p>初星群就是這樣誕生的。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-label">Core Values</div>
+      <h2 class="section-title">我們相信</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>安全先於表現</h3>
+          <p>這裡沒有評分，沒有排名。你可以是任何階段的自己。</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔦</div>
+          <h3>覺察創造改變</h3>
+          <p>不是靠意志力撐著走，而是先看清楚自己在哪裡、往哪去。</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>陪伴比答案更重要</h3>
+          <p>別人給的答案不一定適合你。我們陪你找到屬於自己的方式。</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌀</div>
+          <h3>落地比懂得更重要</h3>
+          <p>知道很多，不如真實地做到一件。我們重視練習，不只是學習。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>✦ 初星群 Starry Dawn Circle &nbsp;©&nbsp;<span id="year-about"></span></p>
+    <p style="margin-top:8px;font-size:0.72rem;">這裡是陪伴你練習的地方，不是指導你的地方。</p>
+  </footer>
+</div>
+
+
+<!-- ══ PAGE: COURSES ══════════════════════════════════════════════ -->
+<div id="page-courses" class="page">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="hero-badge" style="opacity:1;animation:none;">✦ Courses & Events</div>
+        <h1 class="hero-title" style="opacity:1;animation:none;font-size:clamp(2rem,7vw,3.2rem);">
+          現正課程<strong>・</strong>活動
+        </h1>
+        <p class="hero-tagline" style="opacity:1;animation:none;">
+          小而精準的練習，在生活裡真實發生。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="wip-banner"><span>🔨</span> 網頁建造中，內容陸續更新，敬請期待。</div>
+      <!-- 課程卡片區 - 之後替換內容 -->
+      <div class="section-label">即將開始</div>
+      <h2 class="section-title">近期活動</h2>
+      <p class="section-sub">目前尚無公開活動，請加入村落以獲得最新消息。</p>
+
+      <div class="courses-grid">
+        <!-- 佔位卡片 1 -->
+        <div class="course-card placeholder">
+          <div class="course-tag">即將推出</div>
+          <div class="course-emoji">🌿</div>
+          <h3>【活動名稱】</h3>
+          <p class="course-desc">活動簡介文字，說明這個課程或活動的核心體驗是什麼。</p>
+          <div class="course-meta">
+            <span>📅 日期待定</span>
+            <span>👥 人數：小班制</span>
+          </div>
+          <div class="course-footer">
+            <span class="course-price">費用：待定</span>
+            <a href="https://line.me/ti/g2/PwykU3Dg-k8k6Lnwj-swf5nsSwm4to0a6HFQLg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="course-btn" target="_blank">加入候補</a>
+          </div>
+        </div>
+
+        <!-- 佔位卡片 2 -->
+        <div class="course-card placeholder">
+          <div class="course-tag">規劃中</div>
+          <div class="course-emoji">✨</div>
+          <h3>【活動名稱】</h3>
+          <p class="course-desc">活動簡介文字，說明這個課程或活動的核心體驗是什麼。</p>
+          <div class="course-meta">
+            <span>📅 日期待定</span>
+            <span>👥 人數：小班制</span>
+          </div>
+          <div class="course-footer">
+            <span class="course-price">費用：待定</span>
+            <a href="https://line.me/ti/g2/PwykU3Dg-k8k6Lnwj-swf5nsSwm4to0a6HFQLg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="course-btn" target="_blank">加入候補</a>
+          </div>
+        </div>
+
+        <!-- 佔位卡片 3 -->
+        <div class="course-card placeholder">
+          <div class="course-tag">規劃中</div>
+          <div class="course-emoji">🌙</div>
+          <h3>【活動名稱】</h3>
+          <p class="course-desc">活動簡介文字，說明這個課程或活動的核心體驗是什麼。</p>
+          <div class="course-meta">
+            <span>📅 日期待定</span>
+            <span>👥 人數：小班制</span>
+          </div>
+          <div class="course-footer">
+            <span class="course-price">費用：待定</span>
+            <a href="https://line.me/ti/g2/PwykU3Dg-k8k6Lnwj-swf5nsSwm4to0a6HFQLg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="course-btn" target="_blank">加入候補</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <footer>
+    <p>✦ 初星群 Starry Dawn Circle &nbsp;©&nbsp;<span id="year-courses"></span></p>
+    <p style="margin-top:8px;font-size:0.72rem;">這裡是陪伴你練習的地方，不是指導你的地方。</p>
+  </footer>
+</div>
+
+
+<!-- ══ PAGE: TREEHOUSE ══════════════════════════════════════════════ -->
+<div id="page-treehouse" class="page">
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="hero-badge" style="opacity:1;animation:none;">✦ Tree House</div>
+        <h1 class="hero-title" style="opacity:1;animation:none;font-size:clamp(2rem,7vw,3.2rem);">
+          初星樹洞
+        </h1>
+        <p class="hero-tagline" style="opacity:1;animation:none;">
+          有什麼話想說，卻不知道跟誰說？<br>
+          放進樹洞裡，這裡有人接住。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="treehouse-intro">
+        <div class="treehouse-icon">🌳</div>
+        <h2 class="section-title" style="margin-bottom:12px;">樹洞是什麼？</h2>
+        <p class="section-sub" style="margin-bottom:0;">
+          匿名投稿、說說心裡話、分享一個最近的發現、或者只是記錄此刻的感受——<br>
+          不用完整，不用漂亮，這裡的樹洞接受所有形狀的心聲。
+        </p>
+      </div>
+
+      <div class="treehouse-rules">
+        <div class="rule-item">
+          <span class="rule-icon">🔒</span>
+          <div>
+            <strong>完全匿名</strong>
+            <p>我們不會知道是誰投稿，你可以放心說真話。</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-icon">💛</span>
+          <div>
+            <strong>沒有對錯</strong>
+            <p>任何感受都值得被記錄，不評斷、不說教。</p>
+          </div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-icon">🌿</span>
+          <div>
+            <strong>可能被分享</strong>
+            <p>我們可能會（匿名地）在社群分享有共鳴的內容，讓更多人知道「不只你這樣」。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="treehouse-cta-box" style="text-align:center;">
+        <p class="treehouse-prompt">現在，你想說什麼？</p>
+        <a href="https://www.notion.so/2bae018a12df80c69505ee8ae056600e?source=copy_link" class="btn-primary" target="_blank" rel="noopener" style="display:inline-block;margin-left:auto;margin-right:auto;">
+          🌳 &nbsp;投稿到樹洞
+        </a>
+        <p style="margin-top:16px;font-size:0.78rem;color:var(--text-dim);letter-spacing:0.1em;">
+          連結至 Google 表單・完全匿名・隨時可投
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>✦ 初星群 Starry Dawn Circle &nbsp;©&nbsp;<span id="year-treehouse"></span></p>
+    <p style="margin-top:8px;font-size:0.72rem;">這裡是陪伴你練習的地方，不是指導你的地方。</p>
+  </footer>
+</div>
+
+<!-- ══ PAGE: LIFE STUDIO ═══════════════════════════════════════════ -->
+<div id="page-life-studio" class="page">
+  <div class="page-hero life-page-hero">
+    <div class="container">
+      <div class="page-hero-inner life-hero-inner">
+        <div class="hero-badge" style="opacity:1;animation:none;">✦ Village Practice Room</div>
+        <h1 class="hero-title" style="opacity:1;animation:none;font-size:clamp(2rem,7vw,3.2rem);">
+          村民生活練習室
+        </h1>
+        <p class="hero-tagline" style="opacity:1;animation:none;">
+          把照顧自己這件事，<br>
+          變成每天都摸得到的一點點練習。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section life-studio-section">
+    <div class="container life-studio-wrap">
+      <div class="life-studio-header">
+        <h2 class="section-title">給村民的溫柔小工具</h2>
+        <div class="life-share-row">
+          <button class="share-page-btn" id="lifeShareBtn" type="button">
+            <span aria-hidden="true">↗</span>
+            分享這個網頁
+          </button>
+          <span class="share-status" id="lifeShareStatus" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div class="tool-carousel" id="lifeStudioCarousel" style="--life-slide:0;">
+        <div class="tool-slides">
+          <article class="tool-slide">
+            <div class="tool-preview rise-preview">
+              <div class="preview-browser">
+                <div class="preview-top">
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                </div>
+                <img class="tool-preview-img" src="images/tool-preview-rise-roam.png" alt="久坐休息提醒器工具介面預覽">
+              </div>
+            </div>
+            <div class="tool-copy">
+              <div class="tool-label">Tool 01</div>
+              <h2>久坐休息提醒器</h2>
+              <p>
+                給長時間坐在電腦前的你。它像一個安靜的同伴，提醒你起身、喝水、伸展，讓身體不要被工作悄悄按下靜音鍵。
+              </p>
+              <div class="tool-tags">
+                <span>起身提醒</span>
+                <span>伸展節奏</span>
+                <span>辦公日常</span>
+              </div>
+              <div class="tool-actions">
+                <a class="tool-link" href="https://hannahchen6134.github.io/rise-roam/" target="_blank" rel="noopener">打開工具</a>
+                <span class="tool-secondary">適合放在工作開始前</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tool-slide">
+            <div class="tool-preview calendar-preview">
+              <div class="preview-browser">
+                <div class="preview-top">
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                </div>
+                <img class="tool-preview-img" src="images/tool-preview-rest-calendar.png" alt="養肌肉變漂亮月曆工具介面預覽">
+              </div>
+            </div>
+            <div class="tool-copy">
+              <div class="tool-label">Tool 02</div>
+              <h2>養肌肉變漂亮月曆</h2>
+              <p>
+                用月曆把訓練與休息排進生活裡。它不催促你燃燒意志力，而是幫你看見身體正在慢慢長出力量與線條。
+              </p>
+              <div class="tool-tags">
+                <span>訓練安排</span>
+                <span>休息日</span>
+                <span>身體紀錄</span>
+              </div>
+              <div class="tool-actions">
+                <a class="tool-link" href="https://hannahchen6134.github.io/restcalendar/" target="_blank" rel="noopener">打開工具</a>
+                <span class="tool-secondary">適合每週重新整理一次</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="carousel-dots" aria-label="切換工具預覽">
+            <button class="carousel-tab active" type="button" onclick="setLifeSlide(0)">久坐提醒</button>
+            <button class="carousel-tab" type="button" onclick="setLifeSlide(1)">肌肉月曆</button>
+          </div>
+          <div class="carousel-arrows">
+            <button class="carousel-btn" type="button" onclick="moveLifeSlide(-1)" aria-label="上一個"><span aria-hidden="true">‹</span><span>上一個</span></button>
+            <button class="carousel-btn" type="button" onclick="moveLifeSlide(1)" aria-label="下一個"><span>下一個</span><span aria-hidden="true">›</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="life-detail-grid">
+        <div class="life-detail-card">
+          <strong>小到能開始</strong>
+          <p>不用先規劃完美人生，先從起身、伸展、排一個休息日開始。</p>
+        </div>
+        <div class="life-detail-card">
+          <strong>美到想打開</strong>
+          <p>工具本身也要有質感，讓練習不是任務，而是一個舒服的日常儀式。</p>
+        </div>
+        <div class="life-detail-card">
+          <strong>慢慢有累積</strong>
+          <p>每天一點點，身體會記得，你也會慢慢相信自己做得到。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>✦ 初星群 Starry Dawn Circle &nbsp;©&nbsp;<span id="year-life-studio"></span></p>
+    <p style="margin-top:8px;font-size:0.72rem;">這裡是陪伴你練習的地方，不是指導你的地方。</p>
+  </footer>
+</div>
+
+</body>
+</html>
