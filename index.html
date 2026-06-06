@@ -64,7 +64,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 48%;
       z-index: 0;
       pointer-events: none;
       user-select: none;
@@ -164,6 +164,11 @@
       padding: 120px 28px 80px;
       position: relative;
       background: transparent;
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      display: none;
     }
     
     /* 微小粒子飄浮效果 - 第一組 */
@@ -3407,18 +3412,30 @@
       margin-top: 18px;
     }
     #page-home .hero {
-      background-color: transparent !important;
-      background-image: url('images/image_1.png') !important;
-      background-position: center top !important;
-      background-size: cover !important;
-      background-repeat: no-repeat !important;
+      background: #f8f3ed !important;
     }
     #page-home .hero::before,
     #page-home .hero::after {
       display: none !important;
     }
     #page-home .hero-inner {
+      position: relative;
+      z-index: 2;
       text-shadow: 0 1px 16px rgba(255,253,249,0.82), 0 12px 34px rgba(255,253,249,0.46);
+    }
+    #page-home .hero-bg-img {
+      display: block;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 48%;
+      z-index: 0;
+      opacity: 0.92;
+      filter: contrast(1.02) saturate(0.98) brightness(1.02);
+      pointer-events: none;
+      user-select: none;
     }
     #page-home .method-card,
     #page-home .fit-card,
@@ -3437,9 +3454,14 @@
       #page-home .hero {
         padding: 112px 34px 64px !important;
         min-height: 100svh;
-        background-image: url('images/image_1.png') !important;
-        background-position: center top !important;
-        background-size: cover !important;
+        background: #eadcc4 !important;
+      }
+      #page-home .hero-bg-img {
+        height: 100%;
+        min-height: 100svh;
+        opacity: 0.94;
+        object-position: center 58%;
+        filter: contrast(1.02) saturate(0.98) brightness(1.01);
       }
       #page-home .hero-badge {
         margin-left: auto;
@@ -3524,6 +3546,7 @@
 
 <!-- HERO -->
 <section class="hero">
+  <img class="hero-bg-img" src="images/image_1_mobile_soft.png" alt="" aria-hidden="true">
   <div class="hero-inner">
     <div class="hero-badge">✦ Starry Dawn Circle</div>
     <h1 class="hero-title">
