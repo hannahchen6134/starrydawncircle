@@ -49,13 +49,25 @@
       background-image: url('images/image_1.png');
       background-size: cover;
       background-position: center top;
-      background-attachment: fixed;
+      background-attachment: scroll;
       color: var(--text);
       font-family: 'Noto Serif TC', serif;
       font-weight: 300;
       line-height: 1.9;
       font-size: 16px;
       overflow-x: hidden;
+    }
+
+    .site-bg-img {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
     }
 
     /* ── Canvas Stars ── */
@@ -994,7 +1006,7 @@
     }
 
     /* ══ PAGE SYSTEM ═════════════════════════════════════════════ */
-    .page { display: none; }
+    .page { display: none; position: relative; z-index: 1; }
     .page.active { display: block; }
 
     /* ══ PAGE HERO (sub-pages) ════════════════════════════════════ */
@@ -3395,7 +3407,11 @@
       margin-top: 18px;
     }
     #page-home .hero {
-      background: url('images/image_1.png') center top / cover no-repeat !important;
+      background-color: transparent !important;
+      background-image: url('images/image_1.png') !important;
+      background-position: center top !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
     }
     #page-home .hero::before,
     #page-home .hero::after {
@@ -3415,8 +3431,15 @@
         inset 0 1px 0 rgba(255,255,255,0.82);
     }
     @media (max-width: 640px) {
+      body {
+        background-image: none !important;
+      }
       #page-home .hero {
         padding: 112px 34px 64px !important;
+        min-height: 100svh;
+        background-image: url('images/image_1.png') !important;
+        background-position: center top !important;
+        background-size: cover !important;
       }
       #page-home .hero-badge {
         margin-left: auto;
@@ -3453,10 +3476,11 @@
       }
     }
 
-  </style>
+</style>
 </head>
 <body>
 
+<img class="site-bg-img" src="images/image_1.png" alt="" aria-hidden="true">
 <canvas id="stars-canvas"></canvas>
 <!-- NAV -->
 <nav>
