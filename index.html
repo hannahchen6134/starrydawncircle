@@ -46,7 +46,7 @@
 
     body {
       background: var(--bg);
-      background-image: url('images/image_1.png');
+      background-image: url('images/image_1_mobile_soft.png');
       background-size: cover;
       background-position: center top;
       background-attachment: scroll;
@@ -3412,7 +3412,7 @@
       margin-top: 18px;
     }
     #page-home .hero {
-      background: #f8f3ed !important;
+      background: transparent !important;
     }
     #page-home .hero::before,
     #page-home .hero::after {
@@ -3430,10 +3430,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 48%;
+      object-position: center top;
       z-index: 0;
-      opacity: 0.92;
-      filter: contrast(1.02) saturate(0.98) brightness(1.02);
+      opacity: 1;
+      filter: none;
       pointer-events: none;
       user-select: none;
     }
@@ -3459,9 +3459,9 @@
       #page-home .hero-bg-img {
         height: 100%;
         min-height: 100svh;
-        opacity: 0.94;
-        object-position: center 58%;
-        filter: contrast(1.02) saturate(0.98) brightness(1.01);
+        opacity: 1;
+        object-position: center top;
+        filter: none;
       }
       #page-home .hero-badge {
         margin-left: auto;
@@ -3502,7 +3502,7 @@
 </head>
 <body>
 
-<img class="site-bg-img" src="images/image_1.png" alt="" aria-hidden="true">
+<img class="site-bg-img" src="images/image_1_mobile_soft.png" alt="" aria-hidden="true">
 <canvas id="stars-canvas"></canvas>
 <!-- NAV -->
 <nav>
