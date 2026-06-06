@@ -3337,12 +3337,12 @@
       padding: 0;
     }
     #page-home .hero::before {
-      opacity: 0.58;
+      opacity: 0.42;
     }
     #page-home .hero::after {
       background-image:
-        linear-gradient(180deg, rgba(255,253,249,0.12), rgba(255,253,249,0.38)),
-        radial-gradient(ellipse at 50% 45%, rgba(255,253,249,0.72) 0%, rgba(255,253,249,0.42) 38%, transparent 72%);
+        linear-gradient(180deg, rgba(255,253,249,0.04), rgba(255,253,249,0.16)),
+        radial-gradient(ellipse at 50% 45%, rgba(255,253,249,0.38) 0%, rgba(255,253,249,0.2) 38%, transparent 72%);
       background-size: auto;
       animation: none;
       opacity: 1;
@@ -3364,6 +3364,9 @@
     #page-home .hero-title strong::after {
       bottom: 0.05em;
       opacity: 0.7;
+    }
+    #page-home .mobile-title-break {
+      display: none;
     }
     #page-home .hero-subtitle {
       margin-top: 24px;
@@ -3416,6 +3419,9 @@
         font-size: clamp(1.82rem, 7.4vw, 2.28rem);
         line-height: 1.28;
         letter-spacing: 0.035em;
+      }
+      #page-home .mobile-title-break {
+        display: block;
       }
       #page-home .hero-subtitle {
         font-size: 0.82rem;
@@ -3488,7 +3494,7 @@
     <div class="hero-badge">✦ Starry Dawn Circle</div>
     <h1 class="hero-title">
       與我們一起，<br>
-      練習實現<strong>你的理想生活</strong>
+      練習把<strong>理想生活</strong><br class="mobile-title-break">過成日常
     </h1>
     <p class="hero-subtitle">初星群 Starry Dawn Circle</p>
     <p class="hero-tagline">
