@@ -3016,6 +3016,63 @@
       }
     }
 
+    /* Final correction: prevent overlap, odd title wrapping, and weak card contrast */
+    @media (max-width: 640px) {
+      #page-life-studio .life-page-hero {
+        padding: 46px 0 0;
+      }
+      #page-life-studio .life-hero-inner {
+        max-width: 100%;
+        padding: 0 30px;
+      }
+      #page-life-studio .life-hero-inner .hero-badge {
+        display: none;
+      }
+      #page-life-studio .life-hero-inner .hero-title {
+        font-size: clamp(1.72rem, 7.2vw, 2rem) !important;
+        line-height: 1.28;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        margin: 0 auto 14px;
+        text-align: center;
+      }
+      #page-life-studio .life-animated-title::after {
+        width: 64px;
+        margin-top: 11px;
+      }
+      #page-life-studio .life-hero-inner .hero-tagline {
+        font-size: 0.8rem;
+        line-height: 1.85;
+        letter-spacing: 0.1em;
+        margin-bottom: 24px;
+      }
+      #page-life-studio .life-studio-section {
+        padding-top: 0;
+      }
+      #page-life-studio .tool-carousel {
+        background:
+          linear-gradient(150deg, rgba(255,255,253,0.97), rgba(247,237,229,0.93)),
+          rgba(255,255,255,0.94);
+        border: 1px solid rgba(139,97,92,0.24);
+        box-shadow:
+          0 18px 42px rgba(96,68,54,0.14),
+          inset 0 1px 0 rgba(255,255,255,0.84);
+      }
+      #page-life-studio .tool-preview {
+        background:
+          linear-gradient(145deg, rgba(255,255,255,0.98), rgba(246,235,228,0.9));
+        border-color: rgba(139,97,92,0.22);
+        box-shadow:
+          0 12px 26px rgba(96,68,54,0.12),
+          inset 0 1px 0 rgba(255,255,255,0.9);
+      }
+      #page-life-studio .preview-browser {
+        background: #fffaf5;
+        border-color: rgba(139,97,92,0.18);
+        box-shadow: 0 8px 18px rgba(96,68,54,0.11);
+      }
+    }
+
   </style>
 </head>
 <body>
