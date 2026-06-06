@@ -46,7 +46,7 @@
 
     body {
       background: var(--bg);
-      background-image: url('images/image_1_mobile_soft.png');
+      background-image: url('images/home-bg-soft-v2.png');
       background-size: cover;
       background-position: center top;
       background-attachment: scroll;
@@ -3448,9 +3448,6 @@
         inset 0 1px 0 rgba(255,255,255,0.82);
     }
     @media (max-width: 640px) {
-      body {
-        background-image: none !important;
-      }
       #page-home .hero {
         padding: 112px 34px 64px !important;
         min-height: 100svh;
@@ -3498,11 +3495,37 @@
       }
     }
 
+    html,
+    body {
+      min-height: 100%;
+      background-color: #f7f4ee;
+      background-image: url('images/home-bg-soft-v2.png') !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      background-repeat: no-repeat !important;
+    }
+    .site-bg-img,
+    #page-home .hero-bg-img {
+      content: url('images/home-bg-soft-v2.png');
+      opacity: 1 !important;
+      filter: none !important;
+    }
+    @media (max-width: 640px) {
+      html,
+      body {
+        background-image: url('images/home-bg-soft-v2.png') !important;
+        background-attachment: scroll !important;
+      }
+      #page-home .hero {
+        background: transparent !important;
+      }
+    }
+
 </style>
 </head>
 <body>
 
-<img class="site-bg-img" src="images/image_1_mobile_soft.png" alt="" aria-hidden="true">
+<img class="site-bg-img" src="images/home-bg-soft-v2.png" alt="" aria-hidden="true">
 <canvas id="stars-canvas"></canvas>
 <!-- NAV -->
 <nav>
@@ -3546,7 +3569,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg-img" src="images/image_1_mobile_soft.png" alt="" aria-hidden="true">
+  <img class="hero-bg-img" src="images/home-bg-soft-v2.png" alt="" aria-hidden="true">
   <div class="hero-inner">
     <div class="hero-badge">✦ Starry Dawn Circle</div>
     <h1 class="hero-title">
