@@ -3202,6 +3202,55 @@
       display: none !important;
     }
 
+    /* Life studio page floating actions */
+    .life-floating-actions {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      z-index: 180;
+      display: none;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(139,97,92,0.28);
+      border-radius: 999px;
+      background: rgba(255,253,249,0.92);
+      box-shadow: 0 18px 44px rgba(83,58,44,0.22), inset 0 1px 0 rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    #page-life-studio.active .life-floating-actions {
+      display: flex;
+    }
+    .life-floating-btn {
+      min-height: 36px;
+      padding: 8px 14px;
+      border: 1px solid rgba(139,97,92,0.24);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.84);
+      color: #7c524e;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+    .life-floating-btn:hover {
+      transform: translateY(-1px);
+      background: #fffaf5;
+      box-shadow: 0 8px 18px rgba(83,58,44,0.12);
+    }
+    @media (max-width: 640px) {
+      .life-floating-actions {
+        right: 12px;
+        bottom: calc(76px + env(safe-area-inset-bottom));
+      }
+      .life-floating-btn {
+        min-height: 34px;
+        padding: 7px 11px;
+        font-size: 0.72rem;
+      }
+    }
+
     /* Final brand refinement */
     .nav-logo {
       display: inline-grid;
@@ -3766,6 +3815,7 @@
 
   async function shareLifeStudioPage() {
     const status = document.getElementById('lifeShareStatus');
+    const floatingBtn = document.getElementById('lifeFloatingShareBtn');
     const shareUrl = location.origin + location.pathname + '#life-studio';
     const shareData = {
       title: '初星群｜村民生活練習室',
@@ -3780,9 +3830,11 @@
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(shareUrl);
         if (status) status.textContent = '已複製連結';
+        if (floatingBtn) floatingBtn.textContent = '已複製連結';
       } else {
         window.prompt('複製這個連結分享：', shareUrl);
         if (status) status.textContent = '請複製連結';
+        if (floatingBtn) floatingBtn.textContent = '請複製連結';
       }
     } catch (err) {
       if (status) status.textContent = '分享已取消';
@@ -3792,6 +3844,18 @@
       clearTimeout(window.lifeShareStatusTimer);
       window.lifeShareStatusTimer = setTimeout(() => { status.textContent = ''; }, 2400);
     }
+    if (floatingBtn) {
+      clearTimeout(window.lifeFloatingShareTimer);
+      window.lifeFloatingShareTimer = setTimeout(() => { floatingBtn.textContent = '↗ 分享這頁'; }, 2400);
+    }
+  }
+
+  function goBackFromLifeStudio() {
+    if (document.referrer || history.length > 1) {
+      history.back();
+      return;
+    }
+    showPage('home');
   }
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -4031,6 +4095,10 @@
 
 <!-- ══ PAGE: LIFE STUDIO ═══════════════════════════════════════════ -->
 <div id="page-life-studio" class="page">
+  <div class="life-floating-actions" aria-label="生活練習室頁面操作">
+    <button class="life-floating-btn" type="button" onclick="goBackFromLifeStudio()">← 回上一頁</button>
+    <button class="life-floating-btn" type="button" id="lifeFloatingShareBtn" onclick="shareLifeStudioPage()">↗ 分享這頁</button>
+  </div>
   <div class="page-hero life-page-hero">
     <div class="container">
       <div class="page-hero-inner life-hero-inner">
